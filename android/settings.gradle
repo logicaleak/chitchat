@@ -1,0 +1,3 @@
+rootProject.name = 'chitchat'
+
+include ':app'

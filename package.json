@@ -1,0 +1,15 @@
+{
+  "name": "chitchat",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "dependencies": {
+    "flux-react": "^2.6.7",
+    "react": "^0.14.8",
+    "react-native": "^0.24.1",
+    "react-native-scrollable-tab-view": "^0.4.1",
+    "underscore": "^1.7.0"
+  }
+}
