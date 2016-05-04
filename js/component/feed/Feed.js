@@ -1,4 +1,4 @@
-import React, {Text, ListView, TouchableNativeFeedback} from 'react-native'
+import React, {Text, ListView, View, TouchableNativeFeedback, StyleSheet} from 'react-native'
 import {DataStore} from '../../store/DataStore.js'
 import FeedElement from './FeedElement.js'
 
@@ -33,6 +33,12 @@ export default class Feed extends React.Component {
         );
     }
     
+    _renderSeparator() {
+        return (
+            <View style={styles.separator}/>
+        )   
+    }
+    
     componentWillReceiveProps(props) {
         
     }   
@@ -41,7 +47,19 @@ export default class Feed extends React.Component {
         return (
             <ListView
                     dataSource={this.state.feedList}
-                    renderRow={this._renderFeed} />
+                    renderRow={this._renderFeed} 
+                    renderSeparator={this._renderSeparator}
+                    style={styles.feed} />
         );
     }
 }
+
+const styles = StyleSheet.create({
+    feed: {
+        backgroundColor: "#909090"
+    },
+    separator: {
+        height: 10,
+        backgroundColor: 'transparent'
+    }
+})

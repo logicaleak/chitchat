@@ -34,7 +34,6 @@ export default class FeedElement extends React.Component {
                             </Text>
                         </View>
                     </View>
-                    
                 </View>
             </TouchableNativeFeedback>
              
@@ -44,23 +43,22 @@ export default class FeedElement extends React.Component {
 
 const styles = StyleSheet.create({
     container : {
-        height: 75,
-        backgroundColor: 'red',
-        borderWidth: 1
+        backgroundColor: 'white',
+        padding: 3
     },
     metaData : {
         height:20,
-        backgroundColor: 'blue',
-        borderWidth: 1,
+        backgroundColor: 'white',
         flexDirection : 'row'
     },
     name : {
         flex: 1,
-        backgroundColor: 'green'
+        backgroundColor: 'white'
     },
     topic : {
         flex: 1,
-        backgroundColor: 'yellow'
+        backgroundColor: 'white',
+        alignItems: 'flex-end'
     },
     bottomContent : {
         flex: 1,
@@ -74,6 +72,6 @@ const styles = StyleSheet.create({
     profileImage : {
         height: 55,
         flex: 1,
-        backgroundColor: 'pink'
+        backgroundColor: 'white'
     }
 });
