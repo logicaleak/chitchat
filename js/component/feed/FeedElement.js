@@ -22,10 +22,30 @@ export default class FeedElement extends React.Component {
             this.setState({
                 actionBarVisible : true 
             });
+            
         }
         
     }
     
+    /**
+     * This method creates the style of textContent view according to the visibility of the actionBar
+     * Hence changes style with touch
+     */
+    _getTextContentStyle() {
+        if (this.state.actionBarVisible) {
+            return {
+                padding: 3
+            };
+        } else {
+            return {
+                height : 40
+            }
+        }
+    }
+    
+    /**
+     * This method changes actionBar visibility with touch
+     */
     _renderActionBar() {
         console.log("in");
         if (this.state.actionBarVisible) {
@@ -51,6 +71,24 @@ export default class FeedElement extends React.Component {
         } 
     }
     
+    _renderUserInfoContent() {
+        if (this.state.actionBarVisible) {
+            return (
+                <View>
+                    <View style={styles.infoContent}>
+                        <View style={styles.imageInformation}>
+                            <Image style={styles.profileImage} source={ImageProvider.getOzu()}/> 
+                        </View>
+                        <View style={styles.userInformation}>
+                            <Text>Mohendis 27 yasinda</Text>
+                        </View>
+                    </View>
+                </View>
+                
+            );    
+        }
+    }
+    
     render() {
         var ozu = ImageProvider.getOzu();
         var feedElementData = this.props.feedElementData;
@@ -70,7 +108,8 @@ export default class FeedElement extends React.Component {
                         </View>
                         <View style={styles.separator} />
                         <View style={styles.bottomContent}>
-                            <View style={styles.mainContent}>
+                            {this._renderUserInfoContent()}
+                            <View style={this._getTextContentStyle.bind(this)()}>
                                 <Text key={feedElementData.feedId} >
                                     {feedElementData.userMessage}
                                 </Text>
@@ -103,12 +142,9 @@ const styles = StyleSheet.create({
     },
     bottomContent : {
         flex: 1,
-        height: 55,
-        flexDirection: 'row'
-    },
-    mainContent: {
-        height: 55,
-        flex: 1
+        flexDirection: 'column',
+        overflow : 'hidden',
+        padding: 3
     },
     boldText : {
         color: 'black',
@@ -121,15 +157,32 @@ const styles = StyleSheet.create({
     },
     actionBar : {
         flexDirection : 'row',
-        height : 15
+        height : 23
     },
     engageButton : {
         flex: 1,
-        backgroundColor: 'green'
+        backgroundColor: 'green',
+        alignItems : 'center'
     },
     dismissButton: {
         flex: 1,
-        backgroundColor : 'red'
-    } 
+        backgroundColor : 'red',
+        alignItems : 'center'
+    },
+    infoContent: {
+        flexDirection: 'row',
+        padding: 2
+    },
+    userInformation : {
+        flex: 1,
+        marginLeft: 4
+    },
+    imageInformation: {
+        width: 20
+    },
+    profileImage: {
+        width: 20,
+        height: 27
+    }, 
     
 });
