@@ -13,13 +13,14 @@ import React, {
 
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import Feed from './js/component/feed/Feed.js'
+import ChatList from './js/component/chat/ChatList.js'
 
 class tab extends Component {
     render() {
         return (
             <ScrollableTabView tabBarPosition="bottom">
-                <Feed navigator={this.props.navigator} tabLabel="Flow" />
-                <View tabLabel="React" />
+                <Feed navigator={this.props.navigator} tabLabel="Feed" />
+                <ChatList navigator={this.props.navigator} tabLabel="Chat" />
                 <View tabLabel="Jest" />
             </ScrollableTabView>
         );

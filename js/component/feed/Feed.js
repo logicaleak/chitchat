@@ -13,18 +13,18 @@ export default class Feed extends React.Component {
             }
         });
         this.state = {
-            feedList : ds 
+            feedListDataStore : ds 
         }
     }
     
     _onPressButton() {
-        console.log("yo")
+        
     }
     
-    componentDidMount() {
+    componentWillMount() {
         var feeds = DataStore.getFeed();
         // console.log(feeds);
-        this.setState({feedList : this.state.feedList.cloneWithRows(feeds)});
+        this.setState({feedListDataStore : this.state.feedListDataStore.cloneWithRows(feeds)});
     }
     
     _renderFeed(feedData) {
@@ -39,14 +39,10 @@ export default class Feed extends React.Component {
         )   
     }
     
-    componentWillReceiveProps(props) {
-        
-    }   
-    
     render() {
         return (
             <ListView
-                    dataSource={this.state.feedList}
+                    dataSource={this.state.feedListDataStore}
                     renderRow={this._renderFeed} 
                     renderSeparator={this._renderSeparator}
                     style={styles.feed} />
