@@ -106,6 +106,7 @@ export default class FeedElement extends React.Component {
                                 <Text style={styles.boldText}>  {feedElementData.topicName}</Text>
                             </View>
                         </View>
+                        
                         <View style={styles.separator} />
                         <View style={styles.bottomContent}>
                             {this._renderUserInfoContent()}

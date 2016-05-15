@@ -101,7 +101,7 @@ const styles = React.StyleSheet.create({
         backgroundColor: "#909090"
     },
     separator: {
-        height: 10,
+        height: 5,
         backgroundColor: 'transparent'
     }
 });

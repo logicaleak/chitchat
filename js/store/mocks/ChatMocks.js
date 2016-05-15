@@ -14,7 +14,8 @@ module.exports = {
             "topicId" : 2,
             "lastPairMessage" : "Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, \
             Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah",
-            "chatState" : "WAITING"
+            "pairState" : "WAITING",
+            "waitTime" : "03:12"
         },
         {
             "chatId" : 2,
@@ -29,7 +30,7 @@ module.exports = {
             "topicId" : 2,
             "lastPairMessage" : "Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, \
             Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah",
-            "chatState" : "PAIRED"
+            "pairState" : "PAIRED"
         }
     ]
 }
