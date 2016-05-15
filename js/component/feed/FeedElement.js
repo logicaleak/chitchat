@@ -75,7 +75,7 @@ export default class FeedElement extends React.Component {
         if (this.state.actionBarVisible) {
             return (
                 <View>
-                    <View style={styles.infoContent}>
+                    <View style={styles.userInfoContent}>
                         <View style={styles.imageInformation}>
                             <Image style={styles.profileImage} source={ImageProvider.getOzu()}/> 
                         </View>
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
         backgroundColor : 'red',
         alignItems : 'center'
     },
-    infoContent: {
+    userInfoContent: {
         flexDirection: 'row',
         padding: 2
     },
