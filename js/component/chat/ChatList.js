@@ -1,6 +1,7 @@
 import React, {ListView, View, TextInput} from 'react-native'
 import {DataStore} from '../../store/DataStore.js'
 import ChatListElement from './ChatListElement.js'
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 /**
  * Responsible of the filtering the chats
@@ -21,7 +22,7 @@ class FilterBar extends React.Component {
                 
                 </TextInput>
                 <View style={filterStyles.filter}>
-                
+                    <Icon name="filter" size={30} color="#900" />
                 </View>
             </View>
         );
