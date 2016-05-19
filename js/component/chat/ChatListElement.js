@@ -1,10 +1,12 @@
-import React, {View, Image, Text} from 'react-native'
+import React, {TouchableOpacity, View, Image, Text} from 'react-native'
 import ImageProvider from '../../util/ImageProvider'
 import Icon from 'react-native-vector-icons/FontAwesome';
+import ChatScreen from './ChatScreen.js'
 
 export default class ChatListElement extends React.Component {
     constructor(props) {
         super(props)
+        this._onPress = this._onPress.bind(this);
         
         this.state = {
             actionBarVisible : false
@@ -37,15 +39,16 @@ export default class ChatListElement extends React.Component {
         var globalElementStyle = {
             flexDirection: 'column',
             padding: 6,
-            marginTop: 3
+            marginTop: 3,
+            backgroundColor: 'white'
         }
         
         if (chatData.pairState === "WAITING") {
-            globalElementStyle.backgroundColor = '#ffffb3';    
+            
         }
         
         if (chatData.pairState === "PAIRED") {
-            globalElementStyle.backgroundColor = '#ccffcc';
+            
         }
         
         return globalElementStyle;
@@ -86,18 +89,20 @@ export default class ChatListElement extends React.Component {
      * Renders the last message sent by the pair
      */
     _renderLastPairMessageView(chatData) {
-        return (
-            <View style={styles.lastPairMessageView}>
-                <Text>{chatData.lastPairMessage}</Text>
-            </View>
-        );
+        if (chatData.lastPairMessage) {
+            return (
+                <View style={styles.lastPairMessageView}>
+                    <Text>{chatData.lastPairMessage}</Text>
+                </View>
+            );    
+        }
     }
     
     _renderMisc(chatData) {
         if (chatData.pairState === "WAITING") {
             return (
                 <View style={styles.misc}>
-                    <Icon style={styles.statusIcon} size={30} name="clock-o" />
+                    <Icon style={styles.statusIcon} size={30} name="clock-o" color="#cccc00"/>
                     <Text style={styles.waitingTimer}
                             ref={component => this._waitingTimerRef = component}>
                         {chatData.waitTime}
@@ -109,29 +114,39 @@ export default class ChatListElement extends React.Component {
         if (chatData.pairState === "PAIRED") {
             return (
                 <View style={styles.misc}>
-                    <Icon style={styles.statusIcon} size={30} name="check" />
+                    <Icon style={styles.statusIcon} size={30} name="check" color="#009933"/>
                 </View>
             )
         }
     }
     
+    _onPress() {
+        this.props.navigator.push({
+            name: "chat",
+            component:  ChatScreen
+        });
+    }
+    
     render() {
         var chatData = this.props.chatData;
         return (
-            <View style={this._getGlobalElementStyle.bind(this)(chatData)}>
-                {this._renderChatInfo(chatData)}
-            
-                <View style={styles.separator} />
-            
-                {this._renderProfileInfoContent(chatData)}
+            <TouchableOpacity
+                onPress={this._onPress}>
+                <View style={this._getGlobalElementStyle.bind(this)(chatData)}>
+                    {this._renderChatInfo(chatData)}
                 
+                    <View style={styles.separator} />
                 
-                <View style={styles.meta}>
-                    {this._renderLastPairMessageView(chatData)}
-                    {this._renderMisc(chatData)}
+                    {this._renderProfileInfoContent(chatData)}
+                    
+                    
+                    <View style={styles.meta}>
+                        {this._renderLastPairMessageView(chatData)}
+                        {this._renderMisc(chatData)}
+                    </View>
+                    
                 </View>
-                
-            </View>
+            </TouchableOpacity>
         );
     }
 }

@@ -1,4 +1,4 @@
-import React, {TouchableNativeFeedback, Text, View, StyleSheet, Image, BackAndroid} from 'react-native'
+import React, {TouchableOpacity, Text, View, StyleSheet, Image, BackAndroid} from 'react-native'
 import ImageProvider from '../../util/ImageProvider'
 
 export default class FeedElement extends React.Component {
@@ -53,18 +53,16 @@ export default class FeedElement extends React.Component {
             return (
                 
                 <View style={styles.actionBar}>
-                    <TouchableNativeFeedback
-                            background={TouchableNativeFeedback.SelectableBackground()} >
+                    <TouchableOpacity>
                         <View style={styles.engageButton}>
                             <Text>Engage</Text>
                         </View>
-                    </TouchableNativeFeedback>
-                    <TouchableNativeFeedback
-                            background={TouchableNativeFeedback.SelectableBackground()} >
+                    </TouchableOpacity>
+                    <TouchableOpacity >
                         <View style={styles.dismissButton}>
                             <Text>Dismiss</Text>
                         </View>
-                    </TouchableNativeFeedback>
+                    </TouchableOpacity>
                 </View>
                 
             );        
@@ -94,9 +92,8 @@ export default class FeedElement extends React.Component {
         var feedElementData = this.props.feedElementData;
         return (
             <View>
-                <TouchableNativeFeedback
-                        onPress={this._onPressButton.bind(this)}
-                        background={TouchableNativeFeedback.SelectableBackground()} >
+                <TouchableOpacity
+                        onPress={this._onPressButton.bind(this)}>
                     <View style={styles.container}>
                         <View style={styles.metaData}>
                             <View style={styles.name}>
@@ -118,7 +115,7 @@ export default class FeedElement extends React.Component {
                         </View>
                         
                     </View>
-                </TouchableNativeFeedback>
+                </TouchableOpacity>
                 {this._renderActionBar()}
             </View>
         );

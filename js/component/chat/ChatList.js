@@ -62,7 +62,7 @@ export default class ChatList extends React.Component {
     
     _renderChat(chatData) {
         return (
-            <ChatListElement chatData={chatData}/>    
+            <ChatListElement navigator={this.props.navigator} chatData={chatData}/>    
         );
     }
     
@@ -83,7 +83,7 @@ export default class ChatList extends React.Component {
                 <FilterBar />
                 <ListView
                         dataSource={this.state.chatListDatasource}
-                        renderRow={this._renderChat} 
+                        renderRow={this._renderChat.bind(this)} 
                         renderSeparator={this._renderSeparator}
                         style={styles.chat} />
             </View>

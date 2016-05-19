@@ -12,8 +12,7 @@ module.exports = {
             },    
             "topicName" : "love",
             "topicId" : 2,
-            "lastPairMessage" : "Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, \
-            Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah",
+            "lastPairMessage" : null,
             "pairState" : "WAITING",
             "waitTime" : "03:12"
         },
