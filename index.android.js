@@ -14,6 +14,7 @@ import React, {
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import Feed from './js/component/feed/Feed.js'
 import ChatList from './js/component/chat/ChatList.js'
+import ChatScreen from './js/component/chat/ChatScreen.js'
 
 class tab extends Component {
     render() {
@@ -21,7 +22,6 @@ class tab extends Component {
             <ScrollableTabView tabBarPosition="bottom">
                 <Feed navigator={this.props.navigator} tabLabel="Feed" />
                 <ChatList navigator={this.props.navigator} tabLabel="Chat" />
-                <View tabLabel="Jest" />
             </ScrollableTabView>
         );
     }
@@ -46,6 +46,20 @@ class chitchat extends Component {
         />  
       
     );
+  }
+  
+  componentDidMount() {
+    console.log("main mounted");
+    var ws = new WebSocket('ws://10.0.2.2:8080/chat', '', {user_id : "userid1"});
+    console.log(ws);
+    ws.onopen = () => {
+        console.log("connection opened");
+        // connection opened
+        ws.send('something1');
+        ws.send('something2');
+        ws.send('something3');
+        ws.send('something4');
+    };  
   }
   
 }
