@@ -4,13 +4,13 @@ module.exports = {
             "chatId" : 1,
             "pair" : {
                 "userId" : 1,
-                "userNameSurname" : "Eda Sari",
-                "userNickname" : "edaasari",
+                "userNameSurname" : "Ramo Bro",
+                "userNickname" : "ramobro",
                 "userTopicRating" : 5,
                 "profileImageUrl": "",
-                "userSummary" : "Diplomat 25"
+                "userSummary" : "mohendis 25"
             },    
-            "topicName" : "love",
+            "topicName" : "mohendislik",
             "topicId" : 2,
             "lastPairMessage" : null,
             "pairState" : "WAITING",
@@ -20,12 +20,12 @@ module.exports = {
             "chatId" : 2,
             "pair" : {
                 "userId" : 1,
-                "userNameSurname" : "Eda Sari",
-                "userNickname" : "edaasari",
+                "userNameSurname" : "Ramo Bro",
+                "userNickname" : "ramoro",
                 "userTopicRating" : 5,
                 "profileImageUrl": ""
             },    
-            "topicName" : "love",
+            "topicName" : "topic",
             "topicId" : 2,
             "lastPairMessage" : "Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, \
             Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah, Hell fucking yeah",

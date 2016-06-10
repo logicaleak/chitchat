@@ -40,7 +40,7 @@ class chitchat extends Component {
                 console.log("Hey man !");
 
                 if (route.component) {
-                    return React.createElement(route.component, { navigator });
+                    return React.createElement(route.component, Object.assign({navigator: navigator}, route.passProps));
                 }
             }}
         />  

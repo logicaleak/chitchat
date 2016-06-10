@@ -53,13 +53,13 @@ export default class FeedElement extends React.Component {
             return (
                 
                 <View style={styles.actionBar}>
-                    <TouchableOpacity>
-                        <View style={styles.engageButton}>
+                    <TouchableOpacity style={styles.engageButton}>
+                        <View>
                             <Text>Engage</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity >
-                        <View style={styles.dismissButton}>
+                    <TouchableOpacity style={styles.dismissButton}>
+                        <View>
                             <Text>Dismiss</Text>
                         </View>
                     </TouchableOpacity>
@@ -155,7 +155,8 @@ const styles = StyleSheet.create({
     },
     actionBar : {
         flexDirection : 'row',
-        height : 23
+        height : 23,
+        backgroundColor: 'blue'
     },
     engageButton : {
         flex: 1,

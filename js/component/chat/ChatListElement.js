@@ -2,6 +2,7 @@ import React, {TouchableOpacity, View, Image, Text} from 'react-native'
 import ImageProvider from '../../util/ImageProvider'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import ChatScreen from './ChatScreen.js'
+import Detail from './Detail.js'
 
 export default class ChatListElement extends React.Component {
     constructor(props) {
@@ -121,10 +122,25 @@ export default class ChatListElement extends React.Component {
     }
     
     _onPress() {
-        this.props.navigator.push({
-            name: "chat",
-            component:  ChatScreen
-        });
+        if (this.props.chatData.pairState === "PAIRED") {
+            this.props.navigator.push({
+                name: "chat",
+                component:  ChatScreen
+            });    
+        }
+        
+        if (this.props.chatData.pairState === "WAITING") {
+            console.log("going to detail");
+            var passProps = {
+                chatData : this.props.chatData
+            };
+            
+            this.props.navigator.push({
+                name: "chatDetail",
+                component: Detail,
+                passProps: passProps
+            });    
+        }  
     }
     
     render() {

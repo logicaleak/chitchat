@@ -82,13 +82,13 @@ module.exports = {
             "feedId" : 7,
             "owner" : {
                 "userId" : 2,
-                "userNameSurname" : "Eda Sari",
-                "userNickname" : "edulu",
+                "userNameSurname" : "Nobody",
+                "userNickname" : "nobody",
                 "userTopicRating" : 5
             },
-            "topicName" : "diplomacy",
+            "topicName" : "someTopic",
             "topicId" : 1,
-            "userMessage" : "Diplomatim ben ayiks"
+            "userMessage" : "Wanna talk about some topic"
         }
     ]
 };
