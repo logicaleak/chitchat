@@ -29,7 +29,7 @@ export default class Feed extends React.Component {
     
     _renderFeed(feedData) {
         return (
-            <FeedElement key={feedData.feedId} feedElementData={feedData} />
+            <FeedElement feedElementData={feedData} />
         );
     }
     

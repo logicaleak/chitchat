@@ -66,7 +66,7 @@ export default class ChatListElement extends React.Component {
                 <Image style={styles.profileImage} source={ImageProvider.getOzu()} />
                 
                 <View style={styles.userInfo}>
-                    <Text>{chatData.pair.userSummary}</Text>
+                    <Text>{chatData.originProfile.userSummary}</Text>
                 </View>
             </View>
         )
@@ -81,7 +81,7 @@ export default class ChatListElement extends React.Component {
     _renderChatInfo(chatData) {
         return (
             <View style={styles.chatData}>
-                <Text style={styles.boldText}>{chatData.pair.userNameSurname} . {chatData.topicName}</Text>
+                <Text style={styles.boldText}>{chatData.originProfile.userNameSurname} . {chatData.topicName}</Text>
             </View>
         )
     }
@@ -147,7 +147,8 @@ export default class ChatListElement extends React.Component {
         var chatData = this.props.chatData;
         return (
             <TouchableOpacity
-                onPress={this._onPress}>
+                onPress={this._onPress}
+                key={chatData.chatId}>
                 <View style={this._getGlobalElementStyle.bind(this)(chatData)}>
                     {this._renderChatInfo(chatData)}
                 

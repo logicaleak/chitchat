@@ -90,8 +90,9 @@ export default class FeedElement extends React.Component {
     render() {
         var ozu = ImageProvider.getOzu();
         var feedElementData = this.props.feedElementData;
+        console.log(feedElementData.feedId);
         return (
-            <View>
+            <View key={feedElementData.feedId}>
                 <TouchableOpacity
                         onPress={this._onPressButton.bind(this)}>
                     <View style={styles.container}>

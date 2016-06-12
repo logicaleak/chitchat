@@ -15,6 +15,7 @@ import ScrollableTabView from 'react-native-scrollable-tab-view';
 import Feed from './js/component/feed/Feed.js'
 import ChatList from './js/component/chat/ChatList.js'
 import ChatScreen from './js/component/chat/ChatScreen.js'
+import CreateOrigin from './js/component/action/CreateOrigin.js'
 
 class tab extends Component {
     render() {
@@ -22,6 +23,7 @@ class tab extends Component {
             <ScrollableTabView tabBarPosition="bottom">
                 <Feed navigator={this.props.navigator} tabLabel="Feed" />
                 <ChatList navigator={this.props.navigator} tabLabel="Chat" />
+                <CreateOrigin navigator={this.props.navigator} tabLabel="Enqueue" />
             </ScrollableTabView>
         );
     }

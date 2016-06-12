@@ -1,4 +1,4 @@
-import React, {ListView, View, TextInput} from 'react-native'
+import React, {BackAndroid, ListView, View, TextInput} from 'react-native'
 import {DataStore} from '../../store/DataStore.js'
 import ChatListElement from './ChatListElement.js'
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -17,8 +17,7 @@ class FilterBar extends React.Component {
                 <TextInput 
                         style={filterStyles.search}
                         placeholder="Search"
-                        placeholderTextColor="#222222"
-                        >
+                        placeholderTextColor="#222222">
                 
                 </TextInput>
                 <View style={filterStyles.filter}>
@@ -58,6 +57,12 @@ export default class ChatList extends React.Component {
         this.state = {
             chatListDatasource : ds 
         }
+
+        var that = this;
+        BackAndroid.addEventListener('hardwareBackPress', function() {
+            that.props.navigator.pop();
+            return true;
+        });
     }
     
     _renderChat(chatData) {
