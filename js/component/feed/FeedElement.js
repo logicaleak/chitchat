@@ -1,7 +1,8 @@
-import React, {TouchableOpacity, Text, View, StyleSheet, Image, BackAndroid} from 'react-native'
+import {TouchableOpacity, Text, View, StyleSheet, Image, BackAndroid} from 'react-native'
+import React, {Component} from 'react'
 import ImageProvider from '../../util/ImageProvider'
 
-export default class FeedElement extends React.Component {
+export default class FeedElement extends Component {
     constructor(props) {
         super(props)
         

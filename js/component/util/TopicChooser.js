@@ -1,7 +1,8 @@
-import React from 'react-native'
+import React, {Component} from 'react'
+import {View, Text} from 'react-native'
 import AutoComplete from './AutoComplete.js'
 
-export default class TopicChooser extends React.Component {
+export default class TopicChooser extends Component {
     constructor(props) {
         super(props)
 
@@ -67,22 +68,22 @@ export default class TopicChooser extends React.Component {
     _renderSelf() {
         if (this.state.chosenTopic) {
             return (
-                <React.View style={{backgroundColor:'white'}}>
-                    <React.Text>{this.state.chosenTopic}</React.Text>
-                </React.View>    
+                <View style={{backgroundColor:'white'}}>
+                    <Text>{this.state.chosenTopic}</Text>
+                </View>    
             )
         } else {
             return (
                 
-                <React.View style={{backgroundColor:'white'}}>
-                    <React.Text>Choose Topic:</React.Text>
+                <View style={{backgroundColor:'white'}}>
+                    <Text>Choose Topic:</Text>
                     <AutoComplete
                         items={this.state.topics}
                         onChangeText={this._onChangeText.bind(this)}
                         onAddNewClick={this._onAddNewClick.bind(this)}
                         onRowPress={this._onRowPress.bind(this)}
                     />
-                </React.View>
+                </View>
             )
         }
     }

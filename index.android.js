@@ -2,14 +2,14 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
-import React, {
+import {
   AppRegistry,
-  Component,
   StyleSheet,
   Navigator,
   Text,
   View
 } from 'react-native';
+import React, {Component} from 'react'
 
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import Feed from './js/component/feed/Feed.js'

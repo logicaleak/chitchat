@@ -1,11 +1,11 @@
-import React from 'react-native'
-
-export default class AutoComplete extends React.Component {
+import {View, TextInput, TouchableOpacity, StyleSheet, ListView, Text} from 'react-native'
+import React, {Component} from 'react'
+export default class AutoComplete extends Component {
 
     constructor(props) {
         super(props)
 
-        var ds = new React.ListView.DataSource({
+        var ds = new ListView.DataSource({
             rowHasChanged: (r1, r2) => {
                 return true
             }
@@ -138,47 +138,47 @@ export default class AutoComplete extends React.Component {
         //But we still should use our own touchableOpacity to guarantee onPress to work
         if (this.props.renderRow) {
             return (
-                <React.TouchableOpacity
+                <TouchableOpacity
                         onPress={this._onRowPressGenerator.bind(this)(rowData)}
                         style={this._getRowViewStyle.bind(this)()}>
                     {this.props.renderRow(rowData)}
-                </React.TouchableOpacity>
+                </TouchableOpacity>
             )
         } 
 
         return (
-            <React.TouchableOpacity
+            <TouchableOpacity
                     onPress={this._onRowPressGenerator.bind(this)(rowData)}
                     style={this._getRowViewStyle.bind(this)()}>
                 
-                <React.Text style={this._getRowTextStyle.bind(this)()}>{rowData.text}</React.Text>
+                <Text style={this._getRowTextStyle.bind(this)()}>{rowData.text}</Text>
                 
-            </React.TouchableOpacity>
+            </TouchableOpacity>
         );
     }
 
     _renderSeparator() {
         return (
-            <React.View style={this._getSeparatorStyle.bind(this)()}/>
+            <View style={this._getSeparatorStyle.bind(this)()}/>
         )   
     }
 
     render() {
         return (
-            <React.View style={this.state.containerViewStyle}>
-                <React.TextInput
+            <View style={this.state.containerViewStyle}>
+                <TextInput
                     style={this._getTextInputStyle.bind(this)()}
                     onChangeText={this._onChangeText.bind(this)}
                     multiline={true}/>
 
-                <React.ListView 
+                <ListView 
                     dataSource={this.state.dataSource}
                     renderRow={this._renderRow.bind(this)}
                     style={this._getListViewStyle.bind(this)()}
                     enableEmptySections={true}
                     renderSeparator={this._renderSeparator.bind(this)}
                 />
-            </React.View>
+            </View>
         );
     }
 }
@@ -187,7 +187,7 @@ AutoComplete.propTypes = {
 
 };
 
-var styles = React.StyleSheet.create({
+var styles = StyleSheet.create({
     topicChooserView: {
 
     }

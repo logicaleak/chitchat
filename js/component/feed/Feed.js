@@ -1,8 +1,9 @@
-import React, {Text, ListView, View, TouchableNativeFeedback, StyleSheet} from 'react-native'
+import {Text, ListView, View, TouchableNativeFeedback, StyleSheet} from 'react-native'
+import React, {Component} from 'react'
 import {DataStore} from '../../store/DataStore.js'
 import FeedElement from './FeedElement.js'
 
-export default class Feed extends React.Component {
+export default class Feed extends Component {
     constructor(props) {
         super(props)
         this._renderFeed = this._renderFeed.bind(this)

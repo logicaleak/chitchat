@@ -6,27 +6,28 @@
 
 'use strict';
 
-import React, {
+import {
   Linking,
   Platform,
   ActionSheetIOS,
   Dimensions,
   View,
   Text,
-  Navigator,
-  Component,
+  Navigator
 } from 'react-native';
+import {React, Component} from 'react'
 
-var GiftedMessenger = require('react-native-gifted-messenger');
-var Communications = require('react-native-communications');
+import GiftedMessenger from 'react-native-gifted-messenger'
+import Communications from 'react-native-communications'
+import ExtraDimensions from 'react-native-extra-dimensions-android'
 
 
-var STATUS_BAR_HEIGHT = Navigator.NavigationBar.Styles.General.StatusBarHeight;
 if (Platform.OS === 'android') {
-  var ExtraDimensions = require('react-native-extra-dimensions-android');
+  
 //   var STATUS_BAR_HEIGHT = ExtraDimensions.get('STATUS_BAR_HEIGHT');
 }
 
+var STATUS_BAR_HEIGHT = Navigator.NavigationBar.Styles.General.StatusBarHeight;
 
 export default class GiftedMessengerContainer extends Component {
   

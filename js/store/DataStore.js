@@ -12,6 +12,10 @@ var DataStore = _.extend({}, EventEmitter.prototype, {
 	getChatList: function() {
 		return ChatMocks.chatList;
 	},
+
+	getTopicList: function() {
+		// return TopicMocks.topicList;
+	},
     
     // Emit Change event
 	emitChange: function() {

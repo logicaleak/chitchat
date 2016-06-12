@@ -1,9 +1,10 @@
-import React, {BackAndroid, ListView, View, TextInput, StyleSheet, Image, Text, TouchableOpacity} from 'react-native'
+import {BackAndroid, ListView, View, TextInput, StyleSheet, Image, Text, TouchableOpacity} from 'react-native'
+import React, {Component} from 'react'
 import {DataStore} from '../../store/DataStore.js'
 import ImageProvider from '../../util/ImageProvider'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-class UserProfile extends React.Component {
+class UserProfile extends Component {
     render() {
         return (
             <View>
@@ -20,7 +21,7 @@ class UserProfile extends React.Component {
     }
 }
 
-export default class Detail extends React.Component {
+export default class Detail extends Component {
     constructor(props) {
         super(props)
 
