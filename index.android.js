@@ -2,19 +2,20 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
-import React, {
+import {
   AppRegistry,
-  Component,
   StyleSheet,
   Navigator,
   Text,
   View
 } from 'react-native';
+import React, {Component} from 'react'
 
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import Feed from './js/component/feed/Feed.js'
 import ChatList from './js/component/chat/ChatList.js'
 import ChatScreen from './js/component/chat/ChatScreen.js'
+import CreateOrigin from './js/component/action/CreateOrigin.js'
 
 class tab extends Component {
     render() {
@@ -22,6 +23,7 @@ class tab extends Component {
             <ScrollableTabView tabBarPosition="bottom">
                 <Feed navigator={this.props.navigator} tabLabel="Feed" />
                 <ChatList navigator={this.props.navigator} tabLabel="Chat" />
+                <CreateOrigin navigator={this.props.navigator} tabLabel="Enqueue" />
             </ScrollableTabView>
         );
     }
@@ -40,7 +42,7 @@ class chitchat extends Component {
                 console.log("Hey man !");
 
                 if (route.component) {
-                    return React.createElement(route.component, { navigator });
+                    return React.createElement(route.component, Object.assign({navigator: navigator}, route.passProps));
                 }
             }}
         />  

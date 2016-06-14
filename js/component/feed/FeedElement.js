@@ -1,7 +1,8 @@
-import React, {TouchableOpacity, Text, View, StyleSheet, Image, BackAndroid} from 'react-native'
+import {TouchableOpacity, Text, View, StyleSheet, Image, BackAndroid} from 'react-native'
+import React, {Component} from 'react'
 import ImageProvider from '../../util/ImageProvider'
 
-export default class FeedElement extends React.Component {
+export default class FeedElement extends Component {
     constructor(props) {
         super(props)
         
@@ -53,13 +54,13 @@ export default class FeedElement extends React.Component {
             return (
                 
                 <View style={styles.actionBar}>
-                    <TouchableOpacity>
-                        <View style={styles.engageButton}>
+                    <TouchableOpacity style={styles.engageButton}>
+                        <View>
                             <Text>Engage</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity >
-                        <View style={styles.dismissButton}>
+                    <TouchableOpacity style={styles.dismissButton}>
+                        <View>
                             <Text>Dismiss</Text>
                         </View>
                     </TouchableOpacity>
@@ -90,8 +91,9 @@ export default class FeedElement extends React.Component {
     render() {
         var ozu = ImageProvider.getOzu();
         var feedElementData = this.props.feedElementData;
+        console.log(feedElementData.feedId);
         return (
-            <View>
+            <View key={feedElementData.feedId}>
                 <TouchableOpacity
                         onPress={this._onPressButton.bind(this)}>
                     <View style={styles.container}>
@@ -155,7 +157,8 @@ const styles = StyleSheet.create({
     },
     actionBar : {
         flexDirection : 'row',
-        height : 23
+        height : 23,
+        backgroundColor: 'blue'
     },
     engageButton : {
         flex: 1,

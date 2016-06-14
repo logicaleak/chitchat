@@ -1,9 +1,11 @@
-import React, {TouchableOpacity, View, Image, Text} from 'react-native'
+import {TouchableOpacity, View, Image, Text, StyleSheet} from 'react-native'
+import React, {Component} from 'react'
 import ImageProvider from '../../util/ImageProvider'
 import Icon from 'react-native-vector-icons/FontAwesome';
-import ChatScreen from './ChatScreen.js'
+// import ChatScreen from './ChatScreen.js'
+import Detail from './Detail.js'
 
-export default class ChatListElement extends React.Component {
+export default class ChatListElement extends Component {
     constructor(props) {
         super(props)
         this._onPress = this._onPress.bind(this);
@@ -65,7 +67,7 @@ export default class ChatListElement extends React.Component {
                 <Image style={styles.profileImage} source={ImageProvider.getOzu()} />
                 
                 <View style={styles.userInfo}>
-                    <Text>{chatData.pair.userSummary}</Text>
+                    <Text>{chatData.originProfile.userSummary}</Text>
                 </View>
             </View>
         )
@@ -80,7 +82,7 @@ export default class ChatListElement extends React.Component {
     _renderChatInfo(chatData) {
         return (
             <View style={styles.chatData}>
-                <Text style={styles.boldText}>{chatData.pair.userNameSurname} . {chatData.topicName}</Text>
+                <Text style={styles.boldText}>{chatData.originProfile.userNameSurname} . {chatData.topicName}</Text>
             </View>
         )
     }
@@ -121,17 +123,33 @@ export default class ChatListElement extends React.Component {
     }
     
     _onPress() {
-        this.props.navigator.push({
-            name: "chat",
-            component:  ChatScreen
-        });
+        // if (this.props.chatData.pairState === "PAIRED") {
+        //     this.props.navigator.push({
+        //         name: "chat",
+        //         component:  ChatScreen
+        //     });    
+        // }
+        
+        if (this.props.chatData.pairState === "WAITING") {
+            console.log("going to detail");
+            var passProps = {
+                chatData : this.props.chatData
+            };
+            
+            this.props.navigator.push({
+                name: "chatDetail",
+                component: Detail,
+                passProps: passProps
+            });    
+        }  
     }
     
     render() {
         var chatData = this.props.chatData;
         return (
             <TouchableOpacity
-                onPress={this._onPress}>
+                onPress={this._onPress}
+                key={chatData.chatId}>
                 <View style={this._getGlobalElementStyle.bind(this)(chatData)}>
                     {this._renderChatInfo(chatData)}
                 
@@ -152,7 +170,7 @@ export default class ChatListElement extends React.Component {
 }
 
 
-const styles = React.StyleSheet.create({
+const styles = StyleSheet.create({
     profileInfoContent: {
         flexDirection: 'row',
         marginTop: 4

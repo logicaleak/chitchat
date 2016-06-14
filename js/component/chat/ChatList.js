@@ -1,4 +1,5 @@
-import React, {ListView, View, TextInput} from 'react-native'
+import {BackAndroid, ListView, View, TextInput, StyleSheet} from 'react-native'
+import React, {Component} from 'react'
 import {DataStore} from '../../store/DataStore.js'
 import ChatListElement from './ChatListElement.js'
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -6,7 +7,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 /**
  * Responsible of the filtering the chats
  */
-class FilterBar extends React.Component {
+class FilterBar extends Component {
     constructor(props) {
         super(props)
     }
@@ -17,8 +18,7 @@ class FilterBar extends React.Component {
                 <TextInput 
                         style={filterStyles.search}
                         placeholder="Search"
-                        placeholderTextColor="#222222"
-                        >
+                        placeholderTextColor="#222222">
                 
                 </TextInput>
                 <View style={filterStyles.filter}>
@@ -29,7 +29,7 @@ class FilterBar extends React.Component {
     }
 }
 
-const filterStyles = React.StyleSheet.create({
+const filterStyles = StyleSheet.create({
     filterContainer: {
         flexDirection: 'row',
         height: 40,
@@ -46,7 +46,7 @@ const filterStyles = React.StyleSheet.create({
 });
 
 
-export default class ChatList extends React.Component {
+export default class ChatList extends Component {
     constructor(props) {
         super(props)
         
@@ -58,6 +58,12 @@ export default class ChatList extends React.Component {
         this.state = {
             chatListDatasource : ds 
         }
+
+        var that = this;
+        BackAndroid.addEventListener('hardwareBackPress', function() {
+            that.props.navigator.pop();
+            return true;
+        });
     }
     
     _renderChat(chatData) {
@@ -92,7 +98,7 @@ export default class ChatList extends React.Component {
 }
 
 
-const styles = React.StyleSheet.create({
+const styles = StyleSheet.create({
     chatListContainer: {
         flex: 1,
         backgroundColor: "#909090"

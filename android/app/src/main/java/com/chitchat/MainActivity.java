@@ -1,8 +1,6 @@
 package com.chitchat;
 
 import com.facebook.react.ReactActivity;
-import com.oblador.vectoricons.VectorIconsPackage;
-import ca.jaysoo.extradimensions.ExtraDimensionsPackage;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 
@@ -36,9 +34,7 @@ public class MainActivity extends ReactActivity {
     @Override
     protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
-            new MainReactPackage(),
-            new VectorIconsPackage(),
-            new ExtraDimensionsPackage(this) // I added this, not sure if right?
+            new MainReactPackage()
         );
     }
 }
